@@ -3,14 +3,16 @@ public class Square {
     private double side;
 
     public String toString() {
-        return "Sqaure with this side"+ side;
+        return "Square with this side "+ side;
     }
     public Square(double side){
 
         this.side=side;
     }
 
-    public Square() {
+    public Square()
+    {
+
         this.side=2;
     }
 
