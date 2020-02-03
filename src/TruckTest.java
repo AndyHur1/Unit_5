@@ -1,4 +1,4 @@
-public class TruckAndTruckTest {
+public class TruckTest {
     private String truckID;
     private int odometer;
     private double mpg;
@@ -15,6 +15,7 @@ public int getOdometer(){
     return odometer;
 }
 public double getMpg(){
+
     return mpg;
 }
 public double getFuel(){
@@ -40,11 +41,14 @@ public String drive(){
     return drives;
 }
 public void fill(){
-    fuel+=(odometer-mpg*fuel)/mpg;
+    fuel+=(capacity-fuel);
+    totalFuel+=(capacity-fuel);
 }
 public String fill(double gal){
     String result = "";
-    if (fuel<=capacity){
+    if (fuel+gal<=capacity){
+        fuel+=gal;
+        totalFuel+=gal;
         result = "Success";
     }else {
         result = "Error";
@@ -52,5 +56,14 @@ public String fill(double gal){
     return result;
 
 }
+public static double getTotalFuel(){
+    return totalFuel;
+}
+public String toString(){
+    return "id: "+truckID+"\n"+"odometer: "+odometer+"\n"+"mpg: "+mpg+"\n"+"fuel: "+fuel;
+}
 
+public void setMpg(double mpg){
+    this.mpg=mpg;
+}
 }
