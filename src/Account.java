@@ -1,20 +1,20 @@
 public class Account {
     private String first;
     private String last;
-    private int accNum;
+    private int AcctNum;
     private double balance;
 
-    public Account(String first, String last, int accNum){
+    public Account(String first, String last, double balance){
         this.first=first;
         this.last=last;
         this.balance=balance;
-        this.accNum=(int)Math.random()*998+1;
+        this.AcctNum=(int)Math.random()*998+1;
     }
     public Account(){
         this("","",0);
     }
     public Account(Account dup){
-        this(dup.first,dup.last,dup.accNum);
+        this(dup.first,dup.last, dup.balance);
     }
 
     public double getBalance() {
@@ -25,8 +25,8 @@ public class Account {
         return first;
     }
 
-    public int getAccNum() {
-        return accNum;
+    public int getAcctNum() {
+        return AcctNum;
     }
     public String getLast(){
         return last;
@@ -38,6 +38,21 @@ public String setLast(String last){
 public String setFirst(String first){
         return this.first=first;
 }
-public void depsoit
+public void deposit(double money){
+        balance+=money;
+}
+public boolean withdrawal(double money){
+        if (balance>=money){
+            balance-=money;
+            return true;
+        }else {
+            return false;
+        }
+
+}
+public String toString(){
+        return "Customer Name: "+first+" "+last+"\n"+"Account #: "+AcctNum+"\n"+"Current Balance: $"+balance;
+}
+
 
 }
