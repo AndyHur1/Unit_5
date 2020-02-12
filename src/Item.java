@@ -11,6 +11,7 @@ public class Item {
     Item(String part_number, String part_description, double part_price){
         if (part_price<=0){
             part_price=0;
+
         }
 
         this.part_number=part_number;
